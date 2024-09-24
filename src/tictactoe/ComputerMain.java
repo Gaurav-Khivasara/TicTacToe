@@ -5,7 +5,7 @@
 
 //Position Function!!!!
 
-package computer;
+package tictactoe;
 
 import java.util.Scanner;
 
