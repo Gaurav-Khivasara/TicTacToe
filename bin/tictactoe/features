@@ -1,0 +1,17 @@
+- Difficulty against computer
+
+- Main.java:
+//Against computer
+//Choice X or O to the players
+//Suggestions while 1v1
+//First basic
+//APPEND position for mistake
+
+
+- Computer2D.java:
+//boolean mid as a member leke thoda chota ho skta hai
+//****internal alag aur output alag user ko kind of chutiya banana, like a pointer points to a specific thing, connect internal and external
+
+//*****har ek move k liye ek variable so max 9 variables!!!!******
+
+//Position Function!!!!

@@ -22,6 +22,10 @@ public class Utility {
 
 		return 0;
 	}
+	
+	private static int returnP(char xo) {
+		return xo == 'X' ? 1 : 2;
+	}
 
 	public static void printArr(char arr[]) {
 		int k = 0;
@@ -46,11 +50,5 @@ public class Utility {
 			i++;
 		}
 		arr[i] = xo;
-
-		printArr(arr);
-	}
-
-	public static int returnP(char xo) {
-		return xo == 'X' ? 1 : 2;
 	}
 }

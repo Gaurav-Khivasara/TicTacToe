@@ -1,30 +1,21 @@
-//boolean mid as a member leke thoda chota ho skta hai
-//****internal alag aur output alag user ko kind of chutiya banana, like a pointer points to a specific thing, connect internal and external
-
-//*****har ek move k liye ek variable so max 9 variables!!!!******
-
-//Position Function!!!!
-
 package tictactoe;
 
 import java.util.Scanner;
 
-public class ComputerMain {
-	static char ttt[][] = new char[3][3], assign = '0';
+public class Computer2D {
+	private static char ttt[][] = new char[3][3];
 
-	public static void main(String args[]) {
+	public void computer(char[][] ttt) {
+		Computer2D.ttt = ttt;
+		
 		Scanner sc = new Scanner(System.in);
-
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				ttt[i][j] = ++assign;
-			}
-		}
 
 		int chance = 1, pos = 0;
 
-		System.out.println("Enter position on your turn\nPsitions are\n 1 | 2 | 3\n----------");
-		System.out.print(" 4 | 5 | 6\n----------\n 7 | 8 | 9");
+		System.out.println("\nPlayer 1 is 'X'\nComputer is 'O'");
+		System.out.println("\nEnter a position on your turn to put X or O");
+		System.out.println("Positions are:");
+		System.out.print("1 | 2 | 3\n---------\n4 | 5 | 6\n---------\n7 | 8 | 9");
 
 		while (chance < 10) {
 			if (chance % 2 == 1) {
@@ -57,7 +48,7 @@ public class ComputerMain {
 		sc.close();
 	}
 
-	static boolean check(int chance) {
+	private boolean check(int chance) {
 		boolean winner = false;
 		for (int i = 0; i < 3; i++) {
 			if (ttt[0][i] == ttt[1][i] && ttt[2][i] == ttt[0][i]) {
@@ -89,7 +80,7 @@ public class ComputerMain {
 		return winner;
 	}
 
-	static int computerPosition(int chance, int pos) {
+	private int computerPosition(int chance, int pos) {
 		int rtn = 0;
 		switch (chance) {
 			case 2:
@@ -99,6 +90,7 @@ public class ComputerMain {
 					rtn = 1;
 				}
 			break;
+			
 			default:
 				rtn = checkComputer();
 				if (rtn == 0) {
@@ -128,14 +120,13 @@ public class ComputerMain {
 				if (ttt[1][2] == 'X' && ttt[2][1] == 'X' && chance == 4) {
 					rtn = 9;
 				}
-	
 			break;
 		}
 
 		return rtn;
 	}
 
-	static int cornersMid() {
+	private int cornersMid() {
 		for (int i = 1; i < 10; i += 2) {
 			if (isEmpty(i)) {
 				return i;
@@ -151,7 +142,7 @@ public class ComputerMain {
 		return 0;
 	}
 
-	static int checkComputer() {
+	private int checkComputer() {
 		char xo = 'O', ox = 'X';
 		for (int j = 1; j < 3; j++) {
 			for (int i = 0; i < 3; i++) {
@@ -215,7 +206,7 @@ public class ComputerMain {
 		return 0;
 	}
 
-	static void assign(char xo, int pos) {
+	private void assign(char xo, int pos) {
 		int k = 1;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
@@ -228,7 +219,7 @@ public class ComputerMain {
 		}
 	}
 
-	static void print() {
+	private void print() {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				System.out.print(" " + ttt[i][j]);
@@ -243,7 +234,7 @@ public class ComputerMain {
 		}
 	}
 
-	static boolean isEmpty(int pos) {
+	private boolean isEmpty(int pos) {
 		int k = 1;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
