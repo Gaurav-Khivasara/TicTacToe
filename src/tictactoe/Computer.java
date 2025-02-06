@@ -12,9 +12,10 @@ public class Computer {
 		Scanner sc = new Scanner(System.in);
 
 		int chance = 1, pos = 0;
-
-		System.out.println("\nPlayer 1 is 'X'\nComputer is 'O'");
-		System.out.println("\nEnter a position on your turn to put X or O");
+		
+		System.out.println(Utility.BRIGHT_YELLOW + "\nPlayer 1 is 'X'");
+		System.out.println(Utility.BRIGHT_CYAN + "Computer is 'O'");
+		System.out.println(Utility.RESET + "\nEnter a position on your turn to put X or O");
 		System.out.println("Positions are:");
 		Utility.printArr(ttt);
 
@@ -27,10 +28,10 @@ public class Computer {
 						ttt[pos - 1] = 'X';
 						chance++;
 					} else {
-						System.out.println("Position already acquired!\n");
+						System.out.println(Utility.BRIGHT_RED + "Position already acquired!\n");
 					}
 				} else {
-					System.out.println("Enter valid position!\n");
+					System.out.println(Utility.BRIGHT_RED + "Enter valid position!\n");
 				}
 			} else {
 				pos = computerPosition(chance, pos);
@@ -43,13 +44,16 @@ public class Computer {
 
 			int checker = Utility.checker(ttt, returnP(chance - 1));
 			if (chance > 5 && checker == 1) {
-				System.out.println("\n\nGame Over!\nPlayer WINS!");
+				System.out.println(Utility.BRIGHT_GREEN + "\n\nGame Over!");
+				System.out.println(Utility.BRIGHT_YELLOW + "Player WINS!" + Utility.RESET);
 				break;
 			} else if (chance > 5 && checker == 2) {
-				System.out.println("\n\nGame Over!\nComputer WINS!");
+				System.out.println(Utility.BRIGHT_GREEN + "\n\nGame Over!");
+				System.out.println(Utility.BRIGHT_CYAN + "Computer WINS!" + Utility.RESET);
 				break;
 			} else if (chance == 10) {
-				System.out.println("\n\nGame Over!\nIt's a DRAW!");
+				System.out.println(Utility.BRIGHT_GREEN + "\n\nGame Over!");
+				System.out.println("It's a DRAW!" + Utility.RESET);
 			}
 		}
 		

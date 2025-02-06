@@ -38,8 +38,9 @@ public class Main {
 			return;
 		}
 
-		System.out.println("\nPlayer 1 is 'X'\nPlayer 2 is 'O'");
-		System.out.println("\nEnter a position on your turn to put X or O");
+		System.out.println(Utility.BRIGHT_YELLOW + "\nPlayer 1 is 'X'");
+		System.out.println(Utility.BRIGHT_CYAN + "Player 2 is 'O'");
+		System.out.println(Utility.RESET + "\nEnter a position on your turn to put X or O");
 		System.out.println("Positions are:");
 		Utility.printArr(ttt);
 
@@ -54,7 +55,7 @@ public class Main {
 
 			if (pos > 0 && pos < 10) {
 				if (ttt[pos - 1] == 'X' || ttt[pos - 1] == 'O') {
-					System.out.println("Position already occupied!!");
+					System.out.println(Utility.BRIGHT_RED + "Position already occupied!!");
 				} else {
 					chance++;
 					if (plyr == 1) {
@@ -64,20 +65,22 @@ public class Main {
 					}
 				}
 			} else {
-				System.out.println("Enter valid position!\n");
+				System.out.println(Utility.BRIGHT_RED + "Enter valid position!\n");
 			}
 			
 			Utility.printArr(ttt);
 
 
 			if (Utility.checker(ttt, 'X') == 1) {
-				System.out.println("\nPlayer 1 WON!!");
+				System.out.println(Utility.BRIGHT_GREEN + "\nGame Over!");
+				System.out.println(Utility.BRIGHT_YELLOW + "Player 1 WON!");
 				break;
 			} else if (Utility.checker(ttt, 'O') == 2) {
-				System.out.println("\nPlayer 2 WON!!");
+				System.out.println(Utility.BRIGHT_GREEN + "\nGame Over!");
+				System.out.println(Utility.BRIGHT_CYAN + "Player 2 WON!");
 				break;
 			} else if (Utility.checker(ttt, 'O') == 0 && chance == 10) {
-				System.out.println("\nDraw!!\nGame Over!!");
+				System.out.println(Utility.BRIGHT_GREEN + "\nGame Over!\nIt's a DRAW!");
 				break;
 			}
 		}
